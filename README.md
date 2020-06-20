@@ -1,0 +1,1 @@
+rs-covid-jateng

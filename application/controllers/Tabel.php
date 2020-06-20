@@ -17,7 +17,7 @@ class Tabel extends CI_Controller
 
   public function index()
   {
-    $d['data'] = $this->m_tabel->show_tabel();
-    $this->load->view('menu/v_tabel', $d);
+    $rs['data'] = $this->m_tabel->show_tabel();
+    $this->load->view('menu/v_tabel', $rs);
   }
 }

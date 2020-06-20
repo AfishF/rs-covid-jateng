@@ -28,14 +28,18 @@
                                 <tbody>
                                     <?php
                                     $no = 1;
-                                    foreach ($d as $key => $d) { ?>
+                                    foreach ($data->result_array() as $u) :
+                                        $namars = $u['nama_rs'];
+                                        $alamat = $u['alamat'];
+                                        $telp = $u['telp'];
+                                    ?>
                                         <tr>
                                             <td data-field="user"><?php echo $no++ ?></td>
-                                            <td data-field="nama"><?php echo $d->nama_rs ?></td>
-                                            <td data-field="alamat"><?php echo $d->alamat ?></td>
-                                            <td data-field="telp"><?php echo $d->telp ?></td>
+                                            <td data-field="nama_rs"><?php echo $namars ?></td>
+                                            <td data-field="alamat"><?php echo $alamat ?></td>
+                                            <td data-field="telp"><?php echo $telp ?></td>
                                         </tr>
-                                    <?php } ?>
+                                    <?php endforeach; ?>
                                 </tbody>
                             </table>
                         </div>

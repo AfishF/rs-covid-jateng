@@ -25,15 +25,6 @@ class Home extends CI_Controller
     }
     public function index()
     {
-        if($this->session->userdata('logged_in')){ 
-            $this->load->view('menu/v_home');
-            
-		} else{
-			echo "<script>
-			alert('Access Denied ! ');
-			window.location='".site_url('login')."';
-			</script>";
-		}
-        
+        $this->load->view('menu/v_home');
     }
 }

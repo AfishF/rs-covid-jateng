@@ -44,13 +44,13 @@
 
 
     <script type="text/javascript">
-        var map = L.map('mapid').setView([-6.893020, 109.451440], 10);
+        var map = L.map('mapid').setView([-7.150975, 110.140259], 10);
 
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         }).addTo(map);
 
-        $.getJSON("<?= base_url() ?>map/puskesmas_json", function(data) {
+        $.getJSON("<?= base_url() ?>map/rs_json", function(data) {
             $.each(data, function(i, field) {
 
                 var v_lat = parseFloat(data[i].latitude);
@@ -63,7 +63,7 @@
                 L.marker([v_lat, v_long], {
                         icon: markerIcon
                     }).addTo(map)
-                    .bindPopup(data[i].nama_puskesmas)
+                    .bindPopup(data[i].nama_rs)
             });
         });
     </script>

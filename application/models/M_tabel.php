@@ -9,7 +9,7 @@ class M_tabel extends CI_Model
 
     function show_tabel()
     {
-        $total = $this->db->query("SELECT * FROM pusat_kesehatan_masyarakat");
+        $total = $this->db->query("SELECT * FROM rumahsakit");
         return $total;
     }
 }

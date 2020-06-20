@@ -20,37 +20,20 @@
                                 <thead>
                                     <tr>
                                         <th>No.</th>
-                                        <th>Puskesmas</th>
+                                        <th>Rumah Sakit</th>
                                         <th>Alamat</th>
-                                        <th>Luas Wilayah</th>
-                                        <th>Jumlah Desa</th>
-                                        <th>Jumlah Penduduk</th>
-                                        <th>Karakteristik Wilayah</th>
-                                        <th>Jenis Puskesmas</th>
-                                        <?php if ($this->session->userdata('access_level') === '1') : ?>
-                                            <th>Aksi</th>
-                                        <?php endif; ?>
+                                        <th>No Telepon</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php
                                     $no = 1;
-                                    foreach ($puskesmas as $key => $puskesmas) { ?>
+                                    foreach ($d as $key => $d) { ?>
                                         <tr>
                                             <td data-field="user"><?php echo $no++ ?></td>
-                                            <td data-field="nama"><?php echo $puskesmas->nama_puskesmas ?></td>
-                                            <td data-field="alamat"><?php echo $puskesmas->alamat ?></td>
-                                            <td data-field="luas-wilayah"><?php echo $puskesmas->luas ?></td>
-                                            <td data-field="jumlah-desa"><?php echo $puskesmas->desa ?></td>
-                                            <td data-field="jumlah-penduduk"><?php echo $puskesmas->penduduk ?></td>
-                                            <td data-field="karakteristik-wilayah"><?php echo $puskesmas->karakteristik_wilayah ?></td>
-                                            <td data-field="jenis-puskesmas"><?php echo $puskesmas->jenis_puskesmas ?></td>
-                                            <?php if ($this->session->userdata('access_level') === '1') : ?>
-                                                <td style="text-align:center;">
-                                                    <pre><a class="btn  btn-warning" href="<?php echo site_url('tabel/edit/' . $puskesmas->kode_puskesmas) ?>"  title="Edit"><span class="far fa-edit"></span> Edit</a></pre>
-                                                    <a onclick="deleteConfirm('<?php echo site_url('tabel/delete/' . $puskesmas->kode_puskesmas) ?>')" href="#!" class="btn  btn-danger" title="Hapus"><span class="far fa-trash-alt"></span> Hapus</a>
-                                                </td>
-                                            <?php endif; ?>
+                                            <td data-field="nama"><?php echo $d->nama_rs ?></td>
+                                            <td data-field="alamat"><?php echo $d->alamat ?></td>
+                                            <td data-field="telp"><?php echo $d->telp ?></td>
                                         </tr>
                                     <?php } ?>
                                 </tbody>
@@ -71,31 +54,8 @@
     })
 </script>
 
-<script>
-    function deleteConfirm(url) {
-        $('#btn-delete').attr('href', url);
-        $('#deleteModal').modal();
-    }
-</script>
 
 <!-- Modal Delete Confirmation-->
-<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Apakah anda yakin?</h5>
-                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">×</span>
-                </button>
-            </div>
-            <div class="modal-body">Data yang dihapus tidak akan bisa dikembalikan.</div>
-            <div class="modal-footer">
-                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                <a id="btn-delete" class="btn btn-danger" href="#">Delete</a>
-            </div>
-        </div>
-    </div>
-</div>
 </body>
 
 </html>
